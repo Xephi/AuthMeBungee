@@ -1,4 +1,4 @@
-package fr.xephi.authme;
+package fr.xephi.authme.AuthMeBungeeBridge;
 
 public final class Settings {
 

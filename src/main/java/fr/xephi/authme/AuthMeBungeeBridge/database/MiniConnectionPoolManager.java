@@ -13,7 +13,7 @@
 // Please contact the author if you need another license.
 // This module is provided "as is", without warranties of any kind.
 
-package fr.xephi.authme.database;
+package fr.xephi.authme.AuthMeBungeeBridge.database;
 
 import java.io.PrintWriter;
 import java.sql.Connection;
