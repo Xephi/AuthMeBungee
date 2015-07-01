@@ -1,0 +1,17 @@
+DataSource:
+    # Column for storing or checking players nickname
+    mySQLColumnName: username
+    # Table of the database
+    mySQLTablename: authme
+    # Username about Database Connection Infos
+    mySQLUsername: authme
+    # Database Name, use with converters or as SQLITE database name
+    mySQLDatabase: authme
+    # Database Port
+    mySQLPort: '3306'
+    # Database location
+    mySQLHost: 127.0.0.1
+    # Password about Database Connection Infos
+    mySQLPassword: '12345'
+    # Column for Saving if a player is logged in or not
+    mySQLColumnLogged: isLogged
