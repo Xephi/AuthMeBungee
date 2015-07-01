@@ -1,2 +1,2 @@
-# AuthMeBridge
-AuthMeBridge is a BungeeCord Plugin
+# AuthMeBungeeBridge
+AuthMeBungeeBridge is a BungeeCord Plugin for AuthMeReloaded
