@@ -7,7 +7,7 @@
 	<artifactId>AuthMeBungeeBridge</artifactId>
 	<version>0.1-SNAPSHOT</version>
 
-	<name>AuthMeBridge</name>
+	<name>AuthMeBungeeBridge</name>
 	<description>Bungeecord module for AuthMe!</description>
 	<url>https://github.com/Xephi/AuthMeBridge</url>
 
