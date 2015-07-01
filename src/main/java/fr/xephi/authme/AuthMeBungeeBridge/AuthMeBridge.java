@@ -1,8 +1,8 @@
-package fr.xephi.authme;
+package fr.xephi.authme.AuthMeBungeeBridge;
 
-import fr.xephi.authme.database.DataSource;
-import fr.xephi.authme.database.DatabaseCalls;
-import fr.xephi.authme.database.MySQL;
+import fr.xephi.authme.AuthMeBungeeBridge.database.DataSource;
+import fr.xephi.authme.AuthMeBungeeBridge.database.DatabaseCalls;
+import fr.xephi.authme.AuthMeBungeeBridge.database.MySQL;
 import net.md_5.bungee.api.plugin.Plugin;
 
 /**

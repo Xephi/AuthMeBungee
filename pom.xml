@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
@@ -5,13 +6,21 @@
 	<groupId>fr.xephi.authme</groupId>
 	<artifactId>AuthMeBungeeBridge</artifactId>
 	<version>0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
 
-	<name>AuthMe</name>
-	<url>http://maven.apache.org</url>
+	<name>AuthMeBungeeBridge</name>
+	<description>Bungeecord module for AuthMe!</description>
+	<url>https://github.com/Xephi/AuthMeBridge</url>
+
+	<packaging>jar</packaging>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+		<!-- Change Compiler Version (JDK) HERE! -->
+		<maven.compiler.source>1.7</maven.compiler.source>
+		<maven.compiler.target>1.7</maven.compiler.target>
+        
+		<mainClass>${project.groupId}.${project.artifactId}</mainClass>
 	</properties>
 
 	<repositories>
@@ -21,21 +30,63 @@
 		</repository>
 	</repositories>
 
+	<ciManagement>
+		<system>jenkins</system>
+		<url>http://ci.xephi.fr</url>
+	</ciManagement>
+
+	<issueManagement>
+		<system>GitHub</system>
+		<url>https://github.com/Xephi/AuthMeBridge/issues</url>
+	</issueManagement>
+
 	<build>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.1</version>
+				<version>3.3</version>
 				<configuration>
-					<source>1.7</source>
-					<target>1.7</target>
+					<source>${maven.compiler.source}</source>
+					<target>${maven.compiler.target}</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>com.google.code.maven-replacer-plugin</groupId>
+				<artifactId>replacer</artifactId>
+				<version>1.5.3</version>
+				<executions>
+					<execution>
+						<phase>prepare-package</phase>
+						<goals>
+							<goal>replace</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<file>target/classes/plugin.yml</file>
+					<replacements>
+						<replacement>
+							<token>maven-version</token>
+							<value>${project.version}</value>
+						</replacement>
+					</replacements>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>2.6</version>
+				<configuration>
+					<archive>
+						<manifestFile>${manifest.file}</manifestFile>
+					</archive>
 				</configuration>
 			</plugin>
 		</plugins>
 	</build>
 
 	<dependencies>
+		<!-- Bungeecord Api -->
 		<dependency>
 			<groupId>net.md-5</groupId>
 			<artifactId>bungeecord-api</artifactId>
@@ -43,6 +94,7 @@
 			<type>jar</type>
 			<scope>provided</scope>
 		</dependency>
+
 		<!-- MySql Library -->
 		<dependency>
 			<groupId>mysql</groupId>

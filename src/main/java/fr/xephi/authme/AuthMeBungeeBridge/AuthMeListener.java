@@ -1,6 +1,6 @@
-package fr.xephi.authme;
+package fr.xephi.authme.AuthMeBungeeBridge;
 
-import fr.xephi.authme.database.DataSource;
+import fr.xephi.authme.AuthMeBungeeBridge.database.DataSource;
 import net.md_5.bungee.api.CommandSender;
 import net.md_5.bungee.api.plugin.Listener;
 import net.md_5.bungee.event.EventHandler;
