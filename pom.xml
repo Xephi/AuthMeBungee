@@ -15,12 +15,9 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-
 		<!-- Change Compiler Version (JDK) HERE! -->
 		<maven.compiler.source>1.7</maven.compiler.source>
 		<maven.compiler.target>1.7</maven.compiler.target>
-        
-		<mainClass>${project.groupId}.${project.artifactId}</mainClass>
 	</properties>
 
 	<repositories>
@@ -80,6 +77,7 @@
 					<archive>
 						<manifestFile>${manifest.file}</manifestFile>
 					</archive>
+					<finalName>AuthMeBungeeBridge-${project.version}</finalName>
 				</configuration>
 			</plugin>
 		</plugins>
