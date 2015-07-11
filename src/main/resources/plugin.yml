@@ -1,4 +1,4 @@
 name: AuthMeBungeeBridge
-main: fr.xephi.authme.AuthMeBungeeBridge
+main: fr.xephi.authmebungeebridge.AuthMeBungeeBridge
 version: maven-version
 author: Xephi59
