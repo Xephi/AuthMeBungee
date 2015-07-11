@@ -1,4 +1,4 @@
-package fr.xephi.authme.AuthMeBungeeBridge;
+package fr.xephi.authmebungeebridge;
 
 import java.io.File;
 import java.io.IOException;

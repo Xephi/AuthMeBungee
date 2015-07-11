@@ -1,4 +1,4 @@
-package fr.xephi.authme.AuthMeBungeeBridge.database;
+package fr.xephi.authmebungeebridge.database;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -8,8 +8,8 @@ import java.sql.Statement;
 
 import com.mysql.jdbc.jdbc2.optional.MysqlConnectionPoolDataSource;
 
-import fr.xephi.authme.AuthMeBungeeBridge.Settings;
-import fr.xephi.authme.AuthMeBungeeBridge.database.MiniConnectionPoolManager.TimeoutException;
+import fr.xephi.authmebungeebridge.Settings;
+import fr.xephi.authmebungeebridge.database.MiniConnectionPoolManager.TimeoutException;
 
 public class MySQL implements DataSource {
 

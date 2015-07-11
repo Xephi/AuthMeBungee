@@ -1,8 +1,8 @@
-package fr.xephi.authme.AuthMeBungeeBridge;
+package fr.xephi.authmebungeebridge;
 
 public final class Settings {
 
-    private AuthMeBridge plugin;
+    private AuthMeBungeeBridge plugin;
 
     protected YamlConfig configFile = null;
     public static String getMySQLHost;
@@ -14,7 +14,7 @@ public final class Settings {
     public static String getMySQLColumnName;
     public static String getMySQLColumnLogged;
 
-    public Settings(AuthMeBridge plugin) {
+    public Settings(AuthMeBungeeBridge plugin) {
         this.plugin = plugin;
         try {
             this.configFile = new YamlConfig("config.yml", plugin);

@@ -1,17 +1,17 @@
-package fr.xephi.authme.AuthMeBungeeBridge;
+package fr.xephi.authmebungeebridge;
 
-import fr.xephi.authme.AuthMeBungeeBridge.database.DataSource;
-import fr.xephi.authme.AuthMeBungeeBridge.database.DatabaseCalls;
-import fr.xephi.authme.AuthMeBungeeBridge.database.MySQL;
+import fr.xephi.authmebungeebridge.database.DataSource;
+import fr.xephi.authmebungeebridge.database.DatabaseCalls;
+import fr.xephi.authmebungeebridge.database.MySQL;
 import net.md_5.bungee.api.plugin.Plugin;
 
 /**
  * @author Xephi59
  *
  */
-public class AuthMeBridge extends Plugin {
+public class AuthMeBungeeBridge extends Plugin {
 
-    private static AuthMeBridge instance;
+    private static AuthMeBungeeBridge instance;
     private DataSource database;
 
     @Override
@@ -22,7 +22,7 @@ public class AuthMeBridge extends Plugin {
         this.getProxy().getPluginManager().registerListener(this, new AuthMeListener(database));
     }
 
-    public static AuthMeBridge getInstance() {
+    public static AuthMeBungeeBridge getInstance() {
         return instance;
     }
 }
