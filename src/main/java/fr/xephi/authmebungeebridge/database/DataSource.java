@@ -1,4 +1,4 @@
-package fr.xephi.authme.AuthMeBungeeBridge.database;
+package fr.xephi.authmebungeebridge.database;
 
 public interface DataSource {
 

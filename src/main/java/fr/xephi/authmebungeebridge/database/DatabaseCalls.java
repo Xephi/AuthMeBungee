@@ -1,4 +1,4 @@
-package fr.xephi.authme.AuthMeBungeeBridge.database;
+package fr.xephi.authmebungeebridge.database;
 
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
