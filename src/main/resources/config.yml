@@ -7,3 +7,4 @@ permissionsNeedsAuth:
     - 'bungeecord.command.reload'
     - 'bungeecord.command.send'
     - 'servermanager.use'
+isAuthMeSessionEnabled: false

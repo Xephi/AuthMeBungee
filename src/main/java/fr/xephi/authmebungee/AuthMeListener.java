@@ -50,6 +50,15 @@ public class AuthMeListener implements Listener {
 		}
     }
 
+    @EventHandler
+    public void onLeave(
+    		net.md_5.bungee.api.event.PlayerDisconnectEvent event)
+    {
+    	if (Settings.isAuthMeSessionEnabled)
+    		return;
+    	logged.remove(event.getPlayer().getName().toLowerCase());
+    }
+
     private boolean isLogged(String name) {
         return (logged.contains(name));
     }

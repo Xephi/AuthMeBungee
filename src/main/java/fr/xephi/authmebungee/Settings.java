@@ -9,6 +9,7 @@ public final class Settings {
 
     protected YamlConfig configFile = null;
     public static List<String> revokePermissions = new ArrayList<String>();
+    public static boolean isAuthMeSessionEnabled = false;
 
     public Settings(AuthMeBungee plugin) {
         this.plugin = plugin;
@@ -27,5 +28,6 @@ public final class Settings {
         plugin.getLogger().info("Loading Configuration File...");
 
         revokePermissions = configFile.getConfig().getStringList("permissionsNeedsAuth");
+        isAuthMeSessionEnabled = configFile.getConfig().getBoolean("isAuthMeSessionEnabled");
     }
 }
