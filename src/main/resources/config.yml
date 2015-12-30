@@ -1,0 +1,3 @@
+permissionsWhitelist:
+    - 'bungeecord.command.list'
+isAuthMeSessionEnabled: false

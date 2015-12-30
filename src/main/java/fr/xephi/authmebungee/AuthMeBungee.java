@@ -13,6 +13,7 @@ public class AuthMeBungee extends Plugin {
     @Override
     public void onEnable() {
         instance = this;
+        new Settings(this);
         this.getProxy().getPluginManager().registerListener(this, new AuthMeListener());
     }
 

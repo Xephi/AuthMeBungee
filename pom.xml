@@ -99,14 +99,6 @@
                     <exclude>plugin.yml</exclude>
                 </excludes>
             </resource>
-            <resource>
-                <targetPath>./messages/</targetPath>
-                <filtering>false</filtering>
-                <directory>src/main/resources/messages/</directory>
-                <includes>
-                    <include>*.yml</include>
-                </includes>
-            </resource>
         </resources>
         <testResources>
             <testResource>
@@ -211,7 +203,7 @@
                 <artifactId>coveralls-maven-plugin</artifactId>
                 <version>4.1.0</version>
             </plugin>
-            
+
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
