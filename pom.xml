@@ -1,103 +1,256 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
 
-	<groupId>fr.xephi</groupId>
-	<artifactId>authmebungeebridge</artifactId>
-	<version>0.1-SNAPSHOT</version>
+    <groupId>fr.xephi</groupId>
+    <artifactId>authmebungee</artifactId>
+    <version>0.2-SNAPSHOT</version>
+    <packaging>jar</packaging>
 
-	<name>AuthMeBungeeBridge</name>
-	<description>Bungeecord module for AuthMe!</description>
-	<url>https://github.com/Xephi/AuthMeBridge</url>
+    <name>AuthMeBungee</name>
+    <description>Bungeecord module for AuthMeReloaded!</description>
+    <url>https://github.com/AuthMe-Team/AuthMeBridge</url>
 
-	<packaging>jar</packaging>
+    <organization>
+        <name>AuthMe-Team</name>
+        <url>https://github.com/AuthMe-Team</url>
+    </organization>
 
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<!-- Change Compiler Version (JDK) HERE! -->
-		<maven.compiler.source>1.7</maven.compiler.source>
-		<maven.compiler.target>1.7</maven.compiler.target>
-	</properties>
+    <scm>
+        <connection>scm:git:https://github.com/AuthMe-Team/AuthMeBungee.git</connection>
+        <developerConnection>scm:git:git@github.com:AuthMe-Team/AuthMeBungee.git</developerConnection>
+        <url>http://github.com/AuthMe-Team/AuthMeBungee</url>
+    </scm>
 
-	<repositories>
-		<repository>
-			<id>bungeecord-repo</id>
-			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
-		</repository>
-	</repositories>
+    <ciManagement>
+        <system>jenkins</system>
+        <url>http://ci.xephi.fr/job/AuthMeBungee/</url>
+    </ciManagement>
 
-	<ciManagement>
-		<system>jenkins</system>
-		<url>http://ci.xephi.fr</url>
-	</ciManagement>
+    <issueManagement>
+        <system>GitHub</system>
+        <url>https://github.com/AuthMe-Team/AuthMeBungee/issues</url>
+    </issueManagement>
 
-	<issueManagement>
-		<system>GitHub</system>
-		<url>https://github.com/Xephi/AuthMeBridge/issues</url>
-	</issueManagement>
+    <licenses>
+        <license>
+            <name>The GNU General Public Licence version 3 (GPLv3)</name>
+            <url>http://www.gnu.org/licenses/gpl-3.0.html</url>
+        </license>
+    </licenses>
 
-	<build>
-		<plugins>
+    <prerequisites>
+        <maven>3.3.3</maven>
+    </prerequisites>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <!-- Project Properties -->
+        <pluginName>${project.name}</pluginName>
+        <mainClass>fr.xephi.authmebungee.AuthMeBungee</mainClass>
+        <pluginAuthors>Xephi, sgdc3, DNx5, timvisee, games647, ljacqu</pluginAuthors>
+        <buildNumber>Unknown</buildNumber>
+
+        <!-- Change Compiler Version (JDK) HERE! -->
+        <javaVersion>1.7</javaVersion>
+
+        <!-- Change Bukkit Version HERE! -->
+        <bungeecordVersion>LATEST</bungeecordVersion>
+    </properties>
+
+    <profiles>
+        <profile>
+            <id>jenkins</id>
+            <activation>
+                <property>
+                    <name>env.BUILD_NUMBER</name>
+                </property>
+            </activation>
+            <properties>
+                <buildNumber>${env.BUILD_NUMBER}</buildNumber>
+            </properties>
+        </profile>
+    </profiles>
+
+    <build>
+        <finalName>${pluginName}-${project.version}</finalName>
+        <sourceDirectory>src/main/java</sourceDirectory>
+        <testSourceDirectory>src/test/java</testSourceDirectory>
+
+        <resources>
+            <resource>
+                <targetPath>.</targetPath>
+                <filtering>true</filtering>
+                <directory>src/main/resources/</directory>
+                <includes>
+                    <include>plugin.yml</include>
+                </includes>
+            </resource>
+            <resource>
+                <targetPath>.</targetPath>
+                <filtering>false</filtering>
+                <directory>src/main/resources/</directory>
+                <includes>
+                    <include>*.yml</include>
+                </includes>
+                <excludes>
+                    <exclude>plugin.yml</exclude>
+                </excludes>
+            </resource>
+            <resource>
+                <targetPath>./messages/</targetPath>
+                <filtering>false</filtering>
+                <directory>src/main/resources/messages/</directory>
+                <includes>
+                    <include>*.yml</include>
+                </includes>
+            </resource>
+        </resources>
+        <testResources>
+            <testResource>
+                <directory>src/test/resources</directory>
+            </testResource>
+        </testResources>
+
+		<!-- Just to keep Eclipse compatibility... -->
+		<pluginManagement>
+		    <plugins>
+		        <plugin>
+		            <groupId>org.eclipse.m2e</groupId>
+		            <artifactId>lifecycle-mapping</artifactId>
+		            <version>1.0.0</version>
+		            <configuration>
+		                <lifecycleMappingMetadata>
+		                    <pluginExecutions>
+		                        <pluginExecution>
+		                            <pluginExecutionFilter>
+		                                <groupId>org.codehaus.mojo</groupId>
+		                                <artifactId>buildnumber-maven-plugin</artifactId>
+		                                <versionRange>[1.0,)</versionRange>
+		                                <goals>
+		                                    <goal>create-timestamp</goal>
+		                                </goals>
+		                            </pluginExecutionFilter>
+		                            <action>
+		                                <execute>
+		                                    <runOnConfiguration>true</runOnConfiguration>
+		                                    <runOnIncremental>true</runOnIncremental>
+		                                </execute>
+		                            </action>
+		                        </pluginExecution>
+		                    </pluginExecutions>
+		                </lifecycleMappingMetadata>
+		            </configuration>
+		        </plugin>
+		    </plugins>
+		</pluginManagement>
+
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.3</version>
+                <configuration>
+                    <source>1.7</source>
+                    <target>${javaVersion}</target>
+                </configuration>
+            </plugin>
+
 			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.3</version>
-				<configuration>
-					<source>${maven.compiler.source}</source>
-					<target>${maven.compiler.target}</target>
-				</configuration>
+				<groupId>org.codehaus.mojo</groupId>
+			    <artifactId>buildnumber-maven-plugin</artifactId>
+			    <version>1.4</version>
+			    <configuration>
+			  		<timestampFormat>dd-MM-yy_HH-mm</timestampFormat>
+			    	<timestampPropertyName>build.time</timestampPropertyName>
+			    </configuration>
+			    <executions>
+			    	<execution>
+			        	<phase>generate-resources</phase>
+			            <goals>
+			       			<goal>create-timestamp</goal>
+			    		</goals>
+			    	</execution>
+			    </executions>
 			</plugin>
-			<plugin>
-				<groupId>com.google.code.maven-replacer-plugin</groupId>
-				<artifactId>replacer</artifactId>
-				<version>1.5.3</version>
-				<executions>
-					<execution>
-						<phase>prepare-package</phase>
-						<goals>
-							<goal>replace</goal>
-						</goals>
-					</execution>
-				</executions>
-				<configuration>
-					<file>target/classes/plugin.yml</file>
-					<replacements>
-						<replacement>
-							<token>maven-version</token>
-							<value>${project.version}</value>
-						</replacement>
-					</replacements>
-				</configuration>
-			</plugin>
-			<plugin>
-				<artifactId>maven-jar-plugin</artifactId>
-				<version>2.6</version>
-				<configuration>
-					<archive>
-						<manifestFile>${manifest.file}</manifestFile>
-					</archive>
-					<finalName>${project.name}-${project.version}</finalName>
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>
 
-	<dependencies>
-		<!-- Bungeecord Api -->
-		<dependency>
-			<groupId>net.md-5</groupId>
-			<artifactId>bungeecord-api</artifactId>
-			<version>1.8-SNAPSHOT</version>
-			<type>jar</type>
-			<scope>provided</scope>
-		</dependency>
+            <!-- TODO: we need also to relocate the other libs -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>2.4.2</version>
+                <configuration>
+                    <createDependencyReducedPom>false</createDependencyReducedPom>
+                    <minimizeJar>true</minimizeJar>
+                    <relocations>
+                        <relocation>
+                            <pattern>org.mcstats</pattern>
+                            <shadedPattern>fr.xephi.authmebungee</shadedPattern>
+                        </relocation>
+                        <relocation>
+                            <pattern>net.ricecode.similarity</pattern>
+                            <shadedPattern>fr.xephi.authmebungee.libs.similarity</shadedPattern>
+                        </relocation>
+                    </relocations>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
 
-		<!-- MySql Library -->
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<version>5.1.35</version>
-		</dependency>
-	</dependencies>
+            <!--
+            <plugin>
+                <groupId>org.eluder.coveralls</groupId>
+                <artifactId>coveralls-maven-plugin</artifactId>
+                <version>4.1.0</version>
+            </plugin>
+            
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>0.7.5.201505241946</version>
+                <executions>
+                    <execution>
+                        <id>prepare-agent</id>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            -->
+
+        </plugins>
+    </build>
+
+    <repositories>
+        <!-- BungeeCord Repo -->
+        <repository>
+            <id>bungeecord-repo</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </repository>
+        <!-- Xephi Repo -->
+        <repository>
+            <id>xephi-repo</id>
+            <url>http://ci.xephi.fr/plugin/repository/everything/</url>
+        </repository>
+    </repositories>
+
+    <dependencies>
+        <!-- Bungeecord Api -->
+        <dependency>
+            <groupId>net.md-5</groupId>
+            <artifactId>bungeecord-api</artifactId>
+            <version>${bungeecordVersion}</version>
+            <type>jar</type>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
 </project>

@@ -1,4 +1,4 @@
-package fr.xephi.authmebungeebridge;
+package fr.xephi.authmebungee;
 
 import java.io.ByteArrayInputStream;
 import java.io.DataInputStream;

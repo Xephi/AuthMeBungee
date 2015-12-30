@@ -1,4 +1,4 @@
-package fr.xephi.authmebungeebridge;
+package fr.xephi.authmebungee;
 
 import net.md_5.bungee.api.plugin.Plugin;
 
@@ -6,9 +6,9 @@ import net.md_5.bungee.api.plugin.Plugin;
  * @author Xephi59
  *
  */
-public class AuthMeBungeeBridge extends Plugin {
+public class AuthMeBungee extends Plugin {
 
-    private static AuthMeBungeeBridge instance;
+    private static AuthMeBungee instance;
 
     @Override
     public void onEnable() {
@@ -16,7 +16,7 @@ public class AuthMeBungeeBridge extends Plugin {
         this.getProxy().getPluginManager().registerListener(this, new AuthMeListener());
     }
 
-    public static AuthMeBungeeBridge getInstance() {
+    public static AuthMeBungee getInstance() {
         return instance;
     }
 }

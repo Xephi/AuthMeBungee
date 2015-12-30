@@ -1,4 +1,6 @@
-name: AuthMeBungeeBridge
-main: fr.xephi.authmebungeebridge.AuthMeBungeeBridge
-version: maven-version
-author: Xephi59
+name: ${pluginName}
+authors: [${pluginAuthors}]
+website: ${project.url}
+description: ${project.description}
+main: ${mainClass}
+version: ${project.version}-b${buildNumber}

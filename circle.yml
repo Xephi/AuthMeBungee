@@ -3,7 +3,11 @@ machine:
     version: oraclejdk7
 general:
   artifacts:
-    - "target/AuthMeBungeeBridge-*.jar"
+    - "target/AuthMeBungee-*.jar"
 test:
   override:
-    - mvn clean install
+    - mvn clean install -B
+
+notify:
+  webhooks:
+    - url: https://webhooks.gitter.im/e/7b92ac1a1741748b26bf
