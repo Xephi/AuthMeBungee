@@ -19,7 +19,7 @@ public class AuthMeListener implements Listener {
     @EventHandler
     public void onCommand(
             net.md_5.bungee.api.event.PermissionCheckEvent event) {
-        if (event.getPermission().toLowerCase().startsWith("bungeecord.command")) {
+        if (Settings.revokePermissions.contains(event.getPermission().toLowerCase())) {
             CommandSender sender = event.getSender();
             if (!isLogged(sender.getName().toLowerCase()))
                 event.setHasPermission(false);
