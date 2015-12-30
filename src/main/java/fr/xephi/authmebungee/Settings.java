@@ -27,7 +27,7 @@ public final class Settings {
             return;
         plugin.getLogger().info("Loading Configuration File...");
 
-        revokePermissions = configFile.getConfig().getStringList("permissionsNeedsAuth");
+        revokePermissions = configFile.getConfig().getStringList("permissionsWhitelist");
         isAuthMeSessionEnabled = configFile.getConfig().getBoolean("isAuthMeSessionEnabled");
     }
 }

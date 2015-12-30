@@ -20,7 +20,7 @@ public class AuthMeListener implements Listener {
     @EventHandler
     public void onCommand(
             net.md_5.bungee.api.event.PermissionCheckEvent event) {
-        if (Settings.revokePermissions.contains(event.getPermission().toLowerCase())) {
+        if (!Settings.revokePermissions.contains(event.getPermission().toLowerCase())) {
             CommandSender sender = event.getSender();
             if (!(sender instanceof ProxiedPlayer))
             	return;

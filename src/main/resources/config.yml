@@ -1,10 +1,3 @@
-permissionsNeedsAuth:
-    - 'bungeecord.command.server'
+permissionsWhitelist:
     - 'bungeecord.command.list'
-    - 'bungeecord.command.alert'
-    - 'bungeecord.command.end'
-    - 'bungeecord.command.ip'
-    - 'bungeecord.command.reload'
-    - 'bungeecord.command.send'
-    - 'servermanager.use'
 isAuthMeSessionEnabled: false
