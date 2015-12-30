@@ -17,7 +17,7 @@ public final class Settings {
             this.configFile.loadConfig();
             this.loadConfigOptions();
         } catch (Exception e) {
-            plugin.getLogger().info("Cannot load configuration...");
+            plugin.getLogger().info("Cannot load plugin configuration, it can have an unexpected side effect...");
         }
     }
 
