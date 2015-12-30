@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.util.HashSet;
 
 import net.md_5.bungee.api.CommandSender;
+import net.md_5.bungee.api.connection.ProxiedPlayer;
 import net.md_5.bungee.api.plugin.Listener;
 import net.md_5.bungee.event.EventHandler;
 
@@ -21,6 +22,8 @@ public class AuthMeListener implements Listener {
             net.md_5.bungee.api.event.PermissionCheckEvent event) {
         if (Settings.revokePermissions.contains(event.getPermission().toLowerCase())) {
             CommandSender sender = event.getSender();
+            if (!(sender instanceof ProxiedPlayer))
+            	return;
             if (!isLogged(sender.getName().toLowerCase()))
                 event.setHasPermission(false);
         }
